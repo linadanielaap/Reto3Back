@@ -10,16 +10,14 @@ import java.util.List;
 @Table(name = "category")
 public class Category implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(length = 45)
     private String name;
-    @Column(length = 250)
     private String description;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="category")
     @JsonIgnoreProperties("category")
-    private List<Boat> boats;
+    private List<Boat> bikes;
 
     public Integer getId() {
         return id;
@@ -45,11 +43,12 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public List<Boat> getBoats() {
-        return boats;
+    public List<Boat> getBikes() {
+        return bikes;
     }
 
-    public void setBoats(List<Boat> boats) {
-        this.boats = boats;
+    public void setBikes(List<Boat> bikes) {
+        this.bikes = bikes;
     }
+
 }

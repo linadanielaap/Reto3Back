@@ -12,24 +12,27 @@ import java.util.Optional;
 public class CategoryService {
 
     @Autowired
-    private CategoryRepository catRepository;
+    private CategoryRepository metodosCrud;
 
-    public List<Category> getAllCategories(){return catRepository.getAllCategories();}
-
-    public Optional<Category> getCategory(int idCat){
-        return catRepository.getCategory(idCat);
+    public List<Category> getAll() {
+        return metodosCrud.getAll();
     }
 
-    public Category saveCategory(Category categoria){
-        if(categoria.getId()==null){
-            return catRepository.saveCategory(categoria);
-        }else{
-            Optional<Category> selCategory = catRepository.getCategory(categoria.getId());
-            if(selCategory.isEmpty()){
-                return catRepository.saveCategory(categoria);
-            }else{
+    public Optional<Category> getCategoria(int CategoriaId) {
+        return metodosCrud.getCategoria(CategoriaId);
+    }
+
+    public Category save(Category categoria) {
+        if (categoria.getId()== null) {
+            return metodosCrud.save(categoria);
+        } else {
+            Optional<Category> categoria1 = metodosCrud.getCategoria(categoria.getId());
+            if (categoria1.isEmpty()) {
+                return metodosCrud.save(categoria);
+            } else {
                 return categoria;
             }
         }
     }
+
 }

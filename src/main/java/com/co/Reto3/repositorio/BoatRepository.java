@@ -12,18 +12,17 @@ import java.util.Optional;
 public class BoatRepository {
 
     @Autowired
-    private BoatCrudRepository boatRepository;
+    private BoatCrudRepository crud;
 
     public List<Boat> getAll(){
-        return (List<Boat>) boatRepository.findAll();
-
+        return (List<Boat>) crud.findAll();
     }
 
-    public Optional<Boat> getBoat(int id){
-        return boatRepository.findById(id);
+    public Optional<Boat> getBike(int id){
+        return crud.findById(id);
     }
 
-    public Boat saveBoat(Boat barco){
-        return boatRepository.save(barco);
+    public Boat save(Boat bike){
+        return crud.save(bike);
     }
 }

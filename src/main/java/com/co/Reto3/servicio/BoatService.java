@@ -11,25 +11,25 @@ import java.util.Optional;
 @Service
 public class BoatService {
     @Autowired
-    private BoatRepository boatRepository;
+    private BoatRepository metodosCrud;
 
     public List<Boat> getAll(){
-        return boatRepository.getAll();
+        return metodosCrud.getAll();
     }
 
-    public Optional<Boat> getBoat(int id){
-        return boatRepository.getBoat(id);
+    public Optional<Boat> getBike(int bikeId) {
+        return metodosCrud.getBike(bikeId);
     }
 
-    public Boat save(Boat barco){
-        if(barco.getId()== null){
-            return boatRepository.saveBoat(barco);
-        }else {
-            Optional<Boat> e= boatRepository.getBoat(barco.getId());
-            if (e.isEmpty()){
-                return boatRepository.saveBoat(barco);
-            }else {
-                return barco;
+    public Boat save(Boat bike){
+        if(bike.getId()==null){
+            return metodosCrud.save(bike);
+        }else{
+            Optional<Boat> e=metodosCrud.getBike(bike.getId());
+            if(e.isEmpty()){
+                return metodosCrud.save(bike);
+            }else{
+                return bike;
             }
         }
     }

@@ -7,23 +7,32 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
+/**
+ *
+ * @author USUARIO
+ */
 @RestController
 @RequestMapping("/api/Boat")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+
 public class BoatController {
-
     @Autowired
-    private BoatService boatService;
-
+    private BoatService servicio;
     @GetMapping("/all")
-    public List<Boat> getBoats(){
-        return boatService.getAll();
+    public List<Boat> getBikes(){
+        return servicio.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Boat> getBike(@PathVariable("id") int bikeId) {
+        return servicio.getBike(bikeId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Boat saveBoat (@RequestBody Boat barco){
-        return boatService.save(barco);
+    public Boat save(@RequestBody Boat bike) {
+        return servicio.save(bike);
     }
 }

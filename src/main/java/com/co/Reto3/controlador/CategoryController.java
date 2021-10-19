@@ -7,22 +7,33 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
+/**
+ *
+ * @author USUARIO
+ */
 @RestController
 @RequestMapping("/api/Category")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+
 public class CategoryController {
     @Autowired
-    private CategoryService catService;
+    private CategoryService servicio;
 
     @GetMapping("/all")
-    public List<Category> getCategories(){
-        return catService.getAllCategories();
+    public List<Category> getCategoria() {
+        return servicio.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Category> getCategoria(@PathVariable("id") int categoriaId) {
+        return servicio.getCategoria(categoriaId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category saveCategory(@RequestBody Category categoria){
-        return catService.saveCategory(categoria);
+    public Category save(@RequestBody Category categoria) {
+        return servicio.save(categoria);
     }
 }
