@@ -2,7 +2,6 @@ package com.co.Reto3.servicio;
 
 import com.co.Reto3.modelo.Client;
 import com.co.Reto3.repositorio.ClientRepository;
-import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
