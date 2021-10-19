@@ -10,9 +10,9 @@ import java.io.Serializable;
 public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer message_id;
+    private Integer idMessage;
     @Column(length = 250)
-    private String text;
+    private String messageText;
 
     @ManyToOne
     @JoinColumn(name = "idBoat")
@@ -25,19 +25,19 @@ public class Message implements Serializable {
     private Client client;
 
     public Integer getMessage_id() {
-        return message_id;
+        return idMessage;
     }
 
     public void setMessage_id(Integer message_id) {
-        this.message_id = message_id;
+        this.idMessage = message_id;
     }
 
     public String getText() {
-        return text;
+        return messageText;
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.messageText = text;
     }
 
     public Client getClient() {

@@ -3,6 +3,7 @@ package com.co.Reto3.controlador;
 import com.co.Reto3.modelo.Category;
 import com.co.Reto3.servicio.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class CategoryController {
     }
 
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category saveCategory(@RequestBody Category categoria){
         return catService.saveCategory(categoria);
     }

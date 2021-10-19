@@ -12,9 +12,9 @@ import java.util.Date;
 public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer idReserva;
+    private Integer idReservation;
     private Date startDate;
-    private Date endDate;
+    private Date devolutionDate;
     private String status = "created";
 
     @ManyToOne
@@ -25,28 +25,28 @@ public class Reservation implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idClient")
-    @JsonIgnoreProperties({"books","messages"})
-    private Client cliente;
+    @JsonIgnoreProperties({"reservations","messages"})
+    private Client client;
 
 
     @OneToOne(cascade = {CascadeType.PERSIST},mappedBy="reserva")
     @JsonIgnoreProperties("reserva")
-    private Score calificacion;
+    private Score score;
 
     public Score getCalificacion() {
-        return calificacion;
+        return score;
     }
 
     public void setCalificacion(Score calificacion) {
-        this.calificacion = calificacion;
+        this.score = calificacion;
     }
 
     public Integer getIdReserva() {
-        return idReserva;
+        return idReservation;
     }
 
     public void setIdReserva(Integer idReserva) {
-        this.idReserva = idReserva;
+        this.idReservation = idReserva;
     }
 
     public Date getStartDate() {
@@ -58,11 +58,11 @@ public class Reservation implements Serializable {
     }
 
     public Date getEndDate() {
-        return endDate;
+        return devolutionDate;
     }
 
     public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+        this.devolutionDate= endDate;
     }
 
     public String getStatus() {
@@ -83,10 +83,10 @@ public class Reservation implements Serializable {
     }
 
     public Client getCliente() {
-        return cliente;
+        return client;
     }
 
     public void setCliente(Client cliente) {
-        this.cliente = cliente;
+        this.client = cliente;
     }
 }

@@ -3,6 +3,7 @@ package com.co.Reto3.controlador;
 import com.co.Reto3.modelo.Boat;
 import com.co.Reto3.servicio.BoatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class BoatController {
     }
 
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Boat saveBoat (@RequestBody Boat barco){
         return boatService.save(barco);
     }

@@ -11,18 +11,18 @@ import java.util.List;
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer idClient;
+    private Integer id;
     @Column(length = 250)
-    private String nameClient;
+    private String name;
     @Column(length = 45)
-    private String passwordClient;
+    private String password;
     @Column(length = 45)
-    private String emailClient;
+    private String email;
     private Integer age;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cliente")
     @JsonIgnoreProperties("cliente")
-    private List<Reservation> books;
+    private List<Reservation> reservations;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     @JsonIgnoreProperties("cliente")
@@ -37,43 +37,43 @@ public class Client implements Serializable {
     }
 
     public List<Reservation> getBooks() {
-        return books;
+        return reservations;
     }
 
     public void setBooks(List<Reservation> books) {
-        this.books = books;
+        this.reservations = books;
     }
 
     public Integer getIdClient() {
-        return idClient;
+        return id;
     }
 
     public void setIdClient(Integer idClient) {
-        this.idClient = idClient;
+        this.id = idClient;
     }
 
     public String getNameClient() {
-        return nameClient;
+        return name;
     }
 
     public void setNameClient(String nameClient) {
-        this.nameClient = nameClient;
+        this.name = nameClient;
     }
 
     public String getPasswordClient() {
-        return passwordClient;
+        return password;
     }
 
     public void setPasswordClient(String passwordClient) {
-        this.passwordClient = passwordClient;
+        this.password = passwordClient;
     }
 
     public String getEmailClient() {
-        return emailClient;
+        return email;
     }
 
     public void setEmailClient(String emailClient) {
-        this.emailClient = emailClient;
+        this.email = emailClient;
     }
 
     public Integer getAge() {

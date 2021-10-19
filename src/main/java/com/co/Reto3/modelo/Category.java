@@ -11,11 +11,11 @@ import java.util.List;
 public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer category_id;
+    private Integer id;
     @Column(length = 45)
     private String name;
     @Column(length = 250)
-    private String desCategory;
+    private String description;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="category")
     @JsonIgnoreProperties("category")
@@ -24,11 +24,11 @@ public class Category implements Serializable {
 
 
     public Integer getCategory_id() {
-        return category_id;
+        return id;
     }
 
     public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+        this.id = category_id;
     }
 
     public String getName() {
@@ -40,11 +40,11 @@ public class Category implements Serializable {
     }
 
     public String getDesCategory() {
-        return desCategory;
+        return description;
     }
 
     public void setDesCategory(String desCategory) {
-        this.desCategory = desCategory;
+        this.description = desCategory;
     }
 
     public List<Boat> getBoats() {
