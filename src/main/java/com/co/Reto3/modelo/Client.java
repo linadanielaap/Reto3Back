@@ -26,54 +26,38 @@ public class Client implements Serializable {
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     @JsonIgnoreProperties("client")
-    public List<Message>messages;
+    private List<Message>messages;
 
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
-    public List<Reservation> getBooks() {
-        return reservations;
-    }
-
-    public void setBooks(List<Reservation> books) {
-        this.reservations = books;
-    }
-
-    public Integer getIdClient() {
+    public Integer getId() {
         return id;
     }
 
-    public void setIdClient(Integer idClient) {
-        this.id = idClient;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNameClient() {
+    public String getName() {
         return name;
     }
 
-    public void setNameClient(String nameClient) {
-        this.name = nameClient;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPasswordClient() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPasswordClient(String passwordClient) {
-        this.password = passwordClient;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmailClient() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmailClient(String emailClient) {
-        this.email = emailClient;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Integer getAge() {
@@ -84,4 +68,19 @@ public class Client implements Serializable {
         this.age = age;
     }
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 }

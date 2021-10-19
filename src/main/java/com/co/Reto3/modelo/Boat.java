@@ -58,114 +58,66 @@ public class Boat implements Serializable {
     @JsonIgnoreProperties("boat")
     private List<Reservation> reservations;
 
-    /**
-     *  Metodo get de marca
-     */
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getBrand() {
         return brand;
     }
 
-    /**
-     *  Metodo set de marca
-     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-    /**
-     *  Metodo get de modelo
-     */
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getYear() {
         return year;
     }
 
-    /**
-     *  Metodo set de modelo
-     */
     public void setYear(Integer year) {
         this.year = year;
     }
 
-    /**
-     *  Metodo get de descripcion
-     */
     public String getDescription() {
         return description;
     }
 
-    /**
-     *  Metodo set de descripcion
-     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    /**
-     *  Metodo get de id
-     */
-    public Integer getIdBoat() {
-        return id;
-    }
-
-    /**
-     *  Metodo set de id
-     */
-    public void setIdBoat(Integer idBoat) {
-        this.id = idBoat;
-    }
-
-    /**
-     *  Metodo get de nombre
-     */
-    public String getNameBoat() {
-        return name;
-    }
-
-    /**
-     *  Metodo set de nombre
-     */
-    public void setNameBoat(String nameBoat) {
-        this.name = nameBoat;
-    }
-
-    /**
-     *  Metodo get de categoría
-     */
     public Category getCategory() {
         return category;
     }
 
-    /**
-     *  Metodo set de categoría
-     */
     public void setCategory(Category category) {
         this.category = category;
     }
 
-    /**
-     *  Metodo get de mensajes
-     */
-    public List<Message> getMensajesBoat() {
+    public List<Message> getMessages() {
         return messages;
     }
 
-    /**
-     *  Metodo set de mensajes
-     */
-    public void setMensajesBoat(List<Message> mensajesBoat) {
-        this.messages = mensajesBoat;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
-    /**
-     *  Metodo get de reservaciones
-     */
     public List<Reservation> getReservations() {
         return reservations;
     }
 
-    /**
-     *  Metodo set de reservaciones
-     */
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }

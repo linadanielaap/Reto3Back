@@ -24,28 +24,20 @@ public class Message implements Serializable {
     @JsonIgnoreProperties({"messages", "books", "client"})
     private Client client;
 
-    public Integer getMessage_id() {
+    public Integer getIdMessage() {
         return idMessage;
     }
 
-    public void setMessage_id(Integer message_id) {
-        this.idMessage = message_id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
-    public String getText() {
+    public String getMessageText() {
         return messageText;
     }
 
-    public void setText(String text) {
-        this.messageText = text;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
     }
 
     public Boat getBoat() {
@@ -54,5 +46,13 @@ public class Message implements Serializable {
 
     public void setBoat(Boat boat) {
         this.boat = boat;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

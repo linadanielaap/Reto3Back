@@ -21,14 +21,12 @@ public class Category implements Serializable {
     @JsonIgnoreProperties("category")
     private List<Boat> boats;
 
-
-
-    public Integer getCategory_id() {
+    public Integer getId() {
         return id;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.id = category_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,12 +37,12 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public String getDesCategory() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDesCategory(String desCategory) {
-        this.description = desCategory;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<Boat> getBoats() {

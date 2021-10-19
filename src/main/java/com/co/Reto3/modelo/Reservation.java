@@ -33,20 +33,12 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reserva")
     private Score score;
 
-    public Score getCalificacion() {
-        return score;
-    }
-
-    public void setCalificacion(Score calificacion) {
-        this.score = calificacion;
-    }
-
-    public Integer getIdReserva() {
+    public Integer getIdReservation() {
         return idReservation;
     }
 
-    public void setIdReserva(Integer idReserva) {
-        this.idReservation = idReserva;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -57,12 +49,12 @@ public class Reservation implements Serializable {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Date getDevolutionDate() {
         return devolutionDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.devolutionDate= endDate;
+    public void setDevolutionDate(Date devolutionDate) {
+        this.devolutionDate = devolutionDate;
     }
 
     public String getStatus() {
@@ -71,7 +63,6 @@ public class Reservation implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-
     }
 
     public Boat getBoat() {
@@ -82,11 +73,19 @@ public class Reservation implements Serializable {
         this.boat = boat;
     }
 
-    public Client getCliente() {
+    public Client getClient() {
         return client;
     }
 
-    public void setCliente(Client cliente) {
-        this.client = cliente;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
 }
