@@ -11,7 +11,7 @@ import java.util.List;
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idClient;
     @Column(length = 250)
     private String name;
     @Column(length = 45)
@@ -28,12 +28,12 @@ public class Client implements Serializable {
     @JsonIgnoreProperties("client")
     private List<Message>messages;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdClient() {
+        return idClient;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdClient(Integer id) {
+        this.idClient = id;
     }
 
     public String getName() {

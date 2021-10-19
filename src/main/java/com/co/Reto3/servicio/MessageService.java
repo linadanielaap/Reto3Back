@@ -22,10 +22,10 @@ public class MessageService {
     }
 
     public Message saveMsj(Message mensaje){
-        if(mensaje.getMessage_id()== null){
+        if(mensaje.getIdMessage()== null){
             return msjRepository.saveMessage(mensaje);
         }else {
-            Optional<Message> e= msjRepository.getMessage(mensaje.getMessage_id());
+            Optional<Message> e= msjRepository.getMessage(mensaje.getIdMessage());
             if (e.isEmpty()){
                 return msjRepository.saveMessage(mensaje);
             }else {

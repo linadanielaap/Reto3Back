@@ -22,10 +22,10 @@ public class BoatService {
     }
 
     public Boat save(Boat barco){
-        if(barco.getIdBoat()== null){
+        if(barco.getId()== null){
             return boatRepository.saveBoat(barco);
         }else {
-            Optional<Boat> e= boatRepository.getBoat(barco.getIdBoat());
+            Optional<Boat> e= boatRepository.getBoat(barco.getId());
             if (e.isEmpty()){
                 return boatRepository.saveBoat(barco);
             }else {

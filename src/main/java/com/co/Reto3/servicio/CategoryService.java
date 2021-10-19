@@ -21,10 +21,10 @@ public class CategoryService {
     }
 
     public Category saveCategory(Category categoria){
-        if(categoria.getCategory_id()==null){
+        if(categoria.getId()==null){
             return catRepository.saveCategory(categoria);
         }else{
-            Optional<Category> selCategory = catRepository.getCategory(categoria.getCategory_id());
+            Optional<Category> selCategory = catRepository.getCategory(categoria.getId());
             if(selCategory.isEmpty()){
                 return catRepository.saveCategory(categoria);
             }else{
