@@ -20,15 +20,15 @@ public class Boat implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     /**
-     *  Variable de la marca del barco
-     */
-    @Column(length = 45)
-    private String brand;
-    /**
      *  Variable del nombre del barco
      */
     @Column(length = 45)
     private String name;
+    /**
+     *  Variable de la marca del barco
+     */
+    @Column(length = 45)
+    private String brand;
     /**
      *  Variable del modelo del barco
      */
@@ -49,13 +49,13 @@ public class Boat implements Serializable {
      *  Variable de los mensajes del barco
      */
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy = "boat")
-    @JsonIgnoreProperties("boat")
+    @JsonIgnoreProperties({"boat","client"})
     private List<Message> messages;
     /**
      *  Variable de las reservaciones del barco
      */
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy = "boat")
-    @JsonIgnoreProperties("boat")
+    @JsonIgnoreProperties({"boat","client"})
     private List<Reservation> reservations;
 
     public Integer getId() {
