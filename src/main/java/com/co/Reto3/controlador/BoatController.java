@@ -21,18 +21,30 @@ public class BoatController {
     @Autowired
     private BoatService servicio;
     @GetMapping("/all")
-    public List<Boat> getBikes(){
+    public List<Boat> getBoats(){
         return servicio.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Boat> getBike(@PathVariable("id") int bikeId) {
-        return servicio.getBike(bikeId);
+    public Optional<Boat> getBoat(@PathVariable("id") int boatId) {
+        return servicio.getBoat(boatId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Boat save(@RequestBody Boat bike) {
-        return servicio.save(bike);
+    public Boat save(@RequestBody Boat boat) {
+        return servicio.save(boat);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Boat update(@RequestBody Boat boat) {
+        return servicio.update(boat);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int boatId) {
+        return servicio.deleteBoat(boatId);
     }
 }

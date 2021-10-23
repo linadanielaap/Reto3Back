@@ -25,4 +25,6 @@ public class BoatRepository {
     public Boat save(Boat bike){
         return crud.save(bike);
     }
+
+    public void delete(Boat boat){crud.delete(boat);}
 }

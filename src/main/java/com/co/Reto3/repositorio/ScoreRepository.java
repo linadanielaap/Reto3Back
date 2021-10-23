@@ -13,4 +13,6 @@ public class ScoreRepository {
     public Score saveScore(Score nota){
         return scoreRepository.save(nota);
     }
+
+    public void delete(Score score){scoreRepository.delete(score);}
 }

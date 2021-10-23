@@ -17,8 +17,8 @@ public class BoatService {
         return metodosCrud.getAll();
     }
 
-    public Optional<Boat> getBike(int bikeId) {
-        return metodosCrud.getBike(bikeId);
+    public Optional<Boat> getBoat(int boatId) {
+        return metodosCrud.getBike(boatId);
     }
 
     public Boat save(Boat bike){
@@ -32,5 +32,43 @@ public class BoatService {
                 return bike;
             }
         }
+    }
+
+    public Boat update(Boat boat){
+        if(boat.getId()!=null){
+            Optional<Boat> e=metodosCrud.getBike(boat.getId());
+            if(!e.isEmpty()){
+                if(boat.getName()!=null){
+                    e.get().setName(boat.getName());
+                }
+                if(boat.getBrand()!=null){
+                    e.get().setBrand(boat.getBrand());
+                }
+                if(boat.getYear()!=null){
+                    e.get().setYear(boat.getYear());
+                }
+                if(boat.getDescription()!=null){
+                    e.get().setDescription(boat.getDescription());
+                }
+                if(boat.getCategory()!=null){
+                    e.get().setCategory(boat.getCategory());
+                }
+                metodosCrud.save(e.get());
+                return e.get();
+            }else{
+                return boat;
+            }
+        }else{
+            return boat;
+        }
+    }
+
+
+    public boolean deleteBoat(int boatId) {
+        Boolean aBoolean = getBoat(boatId).map(boat -> {
+            metodosCrud.delete(boat);
+            return true;
+        }).orElse(false);
+        return aBoolean;
     }
 }
